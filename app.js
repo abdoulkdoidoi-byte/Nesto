@@ -1,26 +1,27 @@
 window.onload = function() {
+    const btnSIAPI = document.getElementById("btn-siapiservice");
+    const startScreen = document.getElementById("start-screen");
+    const userForm = document.getElementById("user-form");
+    const app = document.getElementById("app");
+    const btnContinue = document.getElementById("btn-continue");
+    const usernameInput = document.getElementById("username");
+    const welcomeMessage = document.getElementById("welcome-message");
 
-    var btn = document.getElementById("btn");
-    var start = document.getElementById("start");
-    var form = document.getElementById("form");
-    var app = document.getElementById("app");
-    var go = document.getElementById("go");
-    var nameInput = document.getElementById("name");
-    var msg = document.getElementById("msg");
-
-    btn.onclick = function() {
-        start.style.display = "none";
-        form.style.display = "block";
+    // Bouton SIAPiSERVICE
+    btnSIAPI.onclick = function() {
+        startScreen.style.display = "none";
+        userForm.style.display = "block";
     };
 
-    go.onclick = function() {
-        if(nameInput.value !== "") {
-            form.style.display = "none";
-            app.style.display = "block";
-            msg.innerHTML = "Bienvenue " + nameInput.value;
-        } else {
-            alert("Entre ton nom");
+    // Continuer après formulaire
+    btnContinue.onclick = function() {
+        const name = usernameInput.value.trim();
+        if (name === "") {
+            alert("Veuillez entrer votre nom");
+            return;
         }
+        userForm.style.display = "none";
+        app.style.display = "block";
+        welcomeMessage.innerHTML = "Bienvenue " + name + " dans SIAPiSERVICE !";
     };
-
 };
