@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIAPi HUB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Écran d'accueil SIAPiSERVICE -->
+<div id="start-screen" style="text-align:center;margin-top:50px;">
+    <button id="btn-siapiservice" class="btn-main" 
+        style="width:200px;height:200px;border-radius:100px;background:white;color:#000;font-size:24px;">
+        SIAPiSERVICE
+    </button>
+</div>
+
+<!-- Formulaire utilisateur -->
+<div id="user-form" style="display:none;margin-top:20px;text-align:center;">
+    <h3>Créer votre compte</h3>
+    <input type="text" id="name" placeholder="Nom"><br>
+    <input type="text" id="surname" placeholder="Prénom"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="tel" id="phone" placeholder="Numéro de téléphone"><br>
+    <button id="btn-create-user" class="btn-main">Créer le compte</button>
+</div>
+
+<!-- Catégories après création -->
+<div id="categories-container" style="display:none;margin-top:20px;text-align:center;">
+    <h3>Catégories SIAPi HUB</h3>
+    <button class="btn-main" onclick="openApp('Vidéos')">Vidéos</button>
+    <button class="btn-main" onclick="openApp('Jeux Vidéo')">Jeux Vidéo</button>
+    <button class="btn-main" onclick="openLesson('Quiz Maths')">Quiz Maths</button>
+    <div id="books-container" style="margin-top:20px;"></div>
+    <div>
+        <input type="text" id="country-search" placeholder="Rechercher un pays">
+        <button onclick="searchCountry()">Chercher</button>
+        <div id="country-list"></div>
+        <div id="country-details"></div>
+    </div>
+    <div>
+        <button id="btn-start-vpn">Démarrer VPN Gratuit 4h</button>
+        <div id="vpn-timer"></div>
+    </div>
+</div>
+
+<!-- Bouton admin -->
+<div id="admin-entry" style="text-align:center;margin-top:20px;">
+    <button id="btn-admin" class="btn-main" style="border-radius:50px;width:120px;height:120px;">SIAPi</button>
+</div>
+
+<!-- Espace admin -->
+<div id="affiliate-admin" style="display:none;text-align:center;margin-top:20px;">
+    <h3>Mon Espace Admin</h3>
+    <button class="btn-main" onclick="connectAffiliate('AdSense')">Google AdSense</button>
+    <button class="btn-main" onclick="connectAffiliate('AdMob')">Google AdMob</button>
+    <button class="btn-main" onclick="connectAffiliate('Amazon')">Amazon Affiliates</button>
+    <button class="btn-main" onclick="connectAffiliate('ClickBank')">ClickBank</button>
+    <div id="affiliate-status"></div>
+</div>
+
+<!-- -----------------------------
+     Scripts Firebase (avant app.js)
+     ----------------------------- -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<!-- Config Firebase -->
+<script src="firebase-config.js"></script>
+
+<!-- Script principal -->
+<script src="app.js"></script>
+<script src="education/books.js"></script>
+<script src="geo/geo.js"></script>
+<script src="vpn/vpn.js"></script>
+
+</body>
+</html>
